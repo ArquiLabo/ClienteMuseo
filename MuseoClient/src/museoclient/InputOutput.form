@@ -40,16 +40,16 @@
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtName" min="-2" pref="220" max="-2" attributes="0"/>
+                                  <Component id="txtName" min="-2" pref="214" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txtAge" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                               <Component id="btnInput" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace pref="18" max="32767" attributes="0"/>
                               <Component id="btnSalida" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -93,7 +93,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre apellido"/>
+        <Property name="text" type="java.lang.String" value="Nombre y apellido"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtAge">
@@ -183,6 +183,9 @@
     <Component class="javax.swing.JLabel" name="txtStatus">
     </Component>
     <Component class="javax.swing.JTextField" name="txtTicket">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

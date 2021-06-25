@@ -84,7 +84,7 @@ public class InputOutput extends javax.swing.JInternalFrame {
         txtStatus = new javax.swing.JLabel();
         txtTicket = new javax.swing.JTextField();
 
-        jLabel1.setText("Nombre apellido");
+        jLabel1.setText("Nombre y apellido");
 
         jLabel2.setText("Edad");
 
@@ -136,6 +136,8 @@ public class InputOutput extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Estado:");
 
+        txtTicket.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -158,14 +160,14 @@ public class InputOutput extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2))
                                 .addGap(75, 75, 75)
                                 .addComponent(btnInput)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                                 .addComponent(btnSalida)))))
                 .addContainerGap())
         );
@@ -219,13 +221,13 @@ public class InputOutput extends javax.swing.JInternalFrame {
                     txtAge.setText("");
                     txtStatus.setText("Registrado");
                 } else {
-                    txtStatus.setText("Problemas con la ejecucion!");
+                    txtStatus.setText("Problemas con la ejecución!");
                 }
             } catch (RemoteException ex) {
                 Logger.getLogger(InputOutput.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            txtStatus.setText("Campos vacios");
+            txtStatus.setText("Campos vacíos");
         }
 
 
@@ -258,13 +260,13 @@ public class InputOutput extends javax.swing.JInternalFrame {
                     txtAge.setText("");
                     txtStatus.setText("Registrado");
                 } else {
-                    txtStatus.setText("Problemas con la ejecucion!");
+                    txtStatus.setText("Problemas con la ejecución!");
                 }
             } catch (RemoteException ex) {
                 Logger.getLogger(InputOutput.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            txtStatus.setText("Campos vacios");
+            txtStatus.setText("Campos vacíos");
         }
     }//GEN-LAST:event_btnSalidaActionPerformed
 

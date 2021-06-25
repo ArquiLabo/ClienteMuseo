@@ -5,6 +5,8 @@
  */
 package museoclient;
 
+import java.awt.Graphics;
+import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
@@ -14,6 +16,8 @@ import java.rmi.RemoteException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 import museocommon.DataUser;
 import museocommon.MuseoInt;
 
@@ -25,12 +29,14 @@ public class Container extends javax.swing.JFrame {
 
     MuseoInt connection;
     public List<DataUser> response = null;
+    FondoPanel fondo = new FondoPanel();
 
     /**
      * Creates new form Container
      */
     public Container() {
         initComponents();
+        
         connection = connect();
 
         Login window = new Login(this, connection);
@@ -86,6 +92,7 @@ public class Container extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         ContentMain = new javax.swing.JDesktopPane();
+        jPanel1 = new FondoPanel();
         jMenuBar2 = new javax.swing.JMenuBar();
         menuadmin = new javax.swing.JMenu();
         optReport = new javax.swing.JMenuItem();
@@ -108,17 +115,31 @@ public class Container extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 979, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 473, Short.MAX_VALUE)
+        );
+
+        ContentMain.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout ContentMainLayout = new javax.swing.GroupLayout(ContentMain);
         ContentMain.setLayout(ContentMainLayout);
         ContentMainLayout.setHorizontalGroup(
             ContentMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 714, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         ContentMainLayout.setVerticalGroup(
             ContentMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 348, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        menuadmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/admin.png"))); // NOI18N
         menuadmin.setText("Administrator");
 
         optReport.setText("Report");
@@ -131,6 +152,7 @@ public class Container extends javax.swing.JFrame {
 
         jMenuBar2.add(menuadmin);
 
+        menuOptions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/options.png"))); // NOI18N
         menuOptions.setText("Options");
 
         optIO.setText("Entrada / Salida");
@@ -149,9 +171,7 @@ public class Container extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(ContentMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(ContentMain)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,12 +224,15 @@ public class Container extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Container().setVisible(true);
+                
             }
         });
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JDesktopPane ContentMain;
+    private javax.swing.JDesktopPane ContentMain;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -218,9 +241,21 @@ public class Container extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
     public javax.swing.JMenu menuOptions;
     public javax.swing.JMenu menuadmin;
     private javax.swing.JMenuItem optIO;
     private javax.swing.JMenuItem optReport;
     // End of variables declaration//GEN-END:variables
+
+    class FondoPanel extends JPanel {
+        private Image imagen;
+        public void paint(Graphics g){
+            imagen = new ImageIcon(getClass().getResource("/img/museo-fondo.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
+    
 }
